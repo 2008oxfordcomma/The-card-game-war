@@ -23,11 +23,15 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		CardDeck deck = new CardDeck();
-		deck.createDeckOfCards();
+		
+		deck.createDeckOfCardsSorted();
+		deck.shuffle(deck.getCards());
+		
 		Player player01 = new Player("Dre");
 		Player player02 = new Player("Nico");
 		
 		deck.deal(player01, player02);
+		
 		player01.showHand();
 		System.out.println();
 		player02.showHand();
