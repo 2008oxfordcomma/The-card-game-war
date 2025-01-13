@@ -13,7 +13,9 @@
 *
 */
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * 
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 public class CardDeck {
 	
 	Card[] cards;
+	Card[] shuffledCards;
 
 	/**
 	 * 
@@ -29,7 +32,7 @@ public class CardDeck {
 	
 	}
 	
-	public Card[] createDeckOfCards() {
+	public Card[] createDeckOfCardsSorted() {
 		cards = new Card[52];
 		
 		String[] suitOptions = {"Spade", "Heart", "Club", "Diamond"};
@@ -37,24 +40,31 @@ public class CardDeck {
 		
 		// Create Spade Suit
 		for (int i = 0; i < 13; i++) {
-			cards[i] = new Card(suitOptions[0], numberOptions[i]);
+			cards[i] = new Card(numberOptions[i], suitOptions[0]);
 		}
 		
 		// Create Heart Suit
 		for (int i = 0; i < 13; i++) {
-				cards[i + 13] = new Card(suitOptions[1], numberOptions[i]);
+				cards[i + 13] = new Card(numberOptions[i], suitOptions[1]);
 		}
 		
 		// Create Club Suit
 		for (int i = 0; i < 13; i++) {
-				cards[i + 26] = new Card(suitOptions[2], numberOptions[i]);
+				cards[i + 26] = new Card(numberOptions[i], suitOptions[2]);
 		}
 		
 		// Create Diamond Suit
 		for (int i = 0; i < 13; i++) {
-				cards[i + 39] = new Card(suitOptions[3], numberOptions[i]);
+				cards[i + 39] = new Card(numberOptions[i], suitOptions[3]);
 		}
 		
+		return cards;
+	}
+	
+	/**
+	 * @return An array of unsorted cards
+	 */
+	public Card[] getCards() {
 		return cards;
 	}
 	
@@ -66,12 +76,18 @@ public class CardDeck {
 	
 	public void deal(Player player01, Player player02) {
 		for (int i = 0; i < 52; i += 2) {
-			player01.setHand(cards[i]);
+			player01.setHand(shuffledCards[i]);
 		}
 		
 		for (int i = 1; i < 52; i += 2) {
-			player02.setHand(cards[i]);
+			player02.setHand(shuffledCards[i]);
 		}
+	}
+	
+	public void shuffle(Card[] cardArray) {
+		List<Card>cardList = Arrays.asList(cardArray);
+		Collections.shuffle(cardList);
+		shuffledCards = cardList.toArray(cardArray);
 	}
 	
 }
