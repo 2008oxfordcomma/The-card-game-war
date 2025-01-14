@@ -21,6 +21,8 @@ import java.util.ArrayList;
 public class Player {
 	
 	private ArrayList<Card> hand = new ArrayList<Card>();
+	public ArrayList<Card> offHand = new ArrayList<Card>();
+	
 	String name;
 	
 	Player(String name) {
@@ -36,6 +38,10 @@ public class Player {
 		for (Card card : hand) {
 			System.out.println(card.print());
 		}
+	}
+	
+	public ArrayList<Card> getHand() {
+		return hand;
 	}
 
 }

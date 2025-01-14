@@ -36,7 +36,7 @@ public class CardDeck {
 		cards = new Card[52];
 		
 		String[] suitOptions = {"Spade", "Heart", "Club", "Diamond"};
-		String[] numberOptions = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+		int[] numberOptions = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
 		
 		// Create Spade Suit
 		for (int i = 0; i < 13; i++) {

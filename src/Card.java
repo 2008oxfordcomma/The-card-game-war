@@ -18,16 +18,16 @@
  */
 public class Card {
 	
-	String number;
+	int number;
 	String suit;
 	
-	public Card(String number, String suit) {
+	public Card(int number, String suit) {
 		this.number = number;
 		this.suit = suit;
 		
 	}
 	
-	public String getNumber() {
+	public int getNumber() {
 		return number;
 	}
 	
