@@ -33,6 +33,10 @@ public class Player {
 		hand.add(card);
 	}
 	
+	public int getHandAmount() {
+		return hand.size();
+	}
+	
 	public void showHand() {
 		System.out.println(name + "'s hand: ");
 		for (Card card : hand) {
