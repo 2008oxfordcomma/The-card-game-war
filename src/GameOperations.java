@@ -81,6 +81,26 @@ public class GameOperations {
 	
 	private void runAtWarScenerio() {
 		
+		// 4 cards needed, 3 go to the war pile, 1 goes towards seeing who wins
+		if (player01Hand.size() <= 4 || player02Hand.size() <= 4) {
+			// shuffle offHand and add to hand
+		}
+		
+		ArrayList<Card> warPile = new ArrayList<Card>();
+		
+		for (int i = 0; i < 3; i++) {
+			warPile.add(player01Hand.getFirst());
+			warPile.add(player02Hand.getFirst());
+			player01Hand.removeFirst();
+			player02Hand.removeFirst();
+		}
+		
+		if (player01Hand.getFirst().getNumber() > player02Hand.getFirst()) {
+			
+		}
+		
+		
+		
 	}
 	
 	private void testForLargerCard(Card player01Card, Card player02Card) {
